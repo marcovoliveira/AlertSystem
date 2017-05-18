@@ -4,7 +4,7 @@
 
 
 
-<p><h3>The system is composed by the following modules: </h3></p> 
+<p><h3>The system is composed of the following modules: </h3></p> 
 <h5><p>MyHealth Module - Application for the acquisition of physical parameters to be used as patient perspective </p>
 <p>Service Layer Module - Service layer witch integrate a web service and database for system support </p>
 <p>Alert System Module - Application that allow the monitoring by health professional of the data acquired by patient module</p>
@@ -14,4 +14,7 @@
 <ul>● SQL Server</ul>
 <ul>● ADO.NET Entity Framework</ul>
 <ul>● C#</ul><p>
+
+<p> The "Projeto" folder contain the solution developed at Visual Studio 2017 </p> 
+
 
