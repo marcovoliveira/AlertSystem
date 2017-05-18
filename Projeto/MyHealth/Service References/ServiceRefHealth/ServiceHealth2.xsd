@@ -1,0 +1,376 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:51934/ServiceHealth.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/WcfServiceLayer" />
+  <xs:element name="AddPatient">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/WcfServiceLayer" minOccurs="0" name="utente" nillable="true" type="q1:Patient" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddPatientResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddPatientResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddValuesBP">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/WcfServiceLayer" minOccurs="0" name="values" nillable="true" type="q2:BPs" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddValuesBPResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddValuesBPResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddValuesSPO">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/WcfServiceLayer" minOccurs="0" name="values" nillable="true" type="q3:SPOes" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddValuesSPOResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddValuesSPOResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddValuesHR">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/WcfServiceLayer" minOccurs="0" name="values" nillable="true" type="q4:HRs" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddValuesHRResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddValuesHRResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddAlerts">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/WcfServiceLayer" minOccurs="0" name="valores" nillable="true" type="q5:Alertas" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddAlertsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddAlertsResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ValidatePatient">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="id" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ValidatePatientResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/WcfServiceLayer" minOccurs="0" name="ValidatePatientResult" nillable="true" type="q6:Patient" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="listActivePatient">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="listActivePatientResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/WcfServiceLayer" minOccurs="0" name="listActivePatientResult" nillable="true" type="q7:ArrayOfPatient" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="listPatient">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="listPatientResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/WcfServiceLayer" minOccurs="0" name="listPatientResult" nillable="true" type="q8:ArrayOfPatient" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="listPatientWithAlertsBP">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="listPatientWithAlertsBPResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/WcfServiceLayer" minOccurs="0" name="listPatientWithAlertsBPResult" nillable="true" type="q9:ArrayOfBPs" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="listPatientWithAlertsSPO">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="listPatientWithAlertsSPOResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/WcfServiceLayer" minOccurs="0" name="listPatientWithAlertsSPOResult" nillable="true" type="q10:ArrayOfSPOes" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="listPatientWithAlertsHR">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="listPatientWithAlertsHRResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/WcfServiceLayer" minOccurs="0" name="listPatientWithAlertsHRResult" nillable="true" type="q11:ArrayOfHRs" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="listAlertas">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="di" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="df" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="listAlertasResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/WcfServiceLayer" minOccurs="0" name="listAlertasResult" nillable="true" type="q12:ArrayOfAlertas" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="listAlertasUtente">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sns" type="xs:int" />
+        <xs:element minOccurs="0" name="di" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="df" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="listAlertasUtenteResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/WcfServiceLayer" minOccurs="0" name="listAlertasUtenteResult" nillable="true" type="q13:ArrayOfAlertas" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="listBPs">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sns" type="xs:int" />
+        <xs:element minOccurs="0" name="di" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="df" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="listBPsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/WcfServiceLayer" minOccurs="0" name="listBPsResult" nillable="true" type="q14:ArrayOfBPs" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="listSPOes">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sns" type="xs:int" />
+        <xs:element minOccurs="0" name="di" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="df" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="listSPOesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/WcfServiceLayer" minOccurs="0" name="listSPOesResult" nillable="true" type="q15:ArrayOfSPOes" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="listHRs">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sns" type="xs:int" />
+        <xs:element minOccurs="0" name="di" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="df" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="listHRsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/WcfServiceLayer" minOccurs="0" name="listHRsResult" nillable="true" type="q16:ArrayOfHRs" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="listAlertsBPs">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="di" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="df" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="listAlertsBPsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/WcfServiceLayer" minOccurs="0" name="listAlertsBPsResult" nillable="true" type="q17:ArrayOfBPs" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="listAlertsHRs">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="di" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="df" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="listAlertsHRsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/WcfServiceLayer" minOccurs="0" name="listAlertsHRsResult" nillable="true" type="q18:ArrayOfHRs" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="listAlertsSPOes">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="di" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="df" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="listAlertsSPOesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/WcfServiceLayer" minOccurs="0" name="listAlertsSPOesResult" nillable="true" type="q19:ArrayOfSPOes" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="listUserAlertsBPs">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sns" type="xs:int" />
+        <xs:element minOccurs="0" name="di" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="df" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="listUserAlertsBPsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/WcfServiceLayer" minOccurs="0" name="listUserAlertsBPsResult" nillable="true" type="q20:ArrayOfBPs" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="listUserAlertsHRs">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sns" type="xs:int" />
+        <xs:element minOccurs="0" name="di" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="df" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="listUserAlertsHRsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/WcfServiceLayer" minOccurs="0" name="listUserAlertsHRsResult" nillable="true" type="q21:ArrayOfHRs" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="listUserAlertsSPOes">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sns" type="xs:int" />
+        <xs:element minOccurs="0" name="di" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="df" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="listUserAlertsSPOesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/WcfServiceLayer" minOccurs="0" name="listUserAlertsSPOesResult" nillable="true" type="q22:ArrayOfSPOes" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AlterPatient">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/WcfServiceLayer" minOccurs="0" name="utente" nillable="true" type="q23:Patient" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AlterPatientResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AlterPatientResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ActivatePatient">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/WcfServiceLayer" minOccurs="0" name="utente" nillable="true" type="q24:Patient" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ActivatePatientResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ActivatePatientResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetData">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="value" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDataResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetDataResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDataUsingDataContract">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/WcfServiceLayer" minOccurs="0" name="composite" nillable="true" type="q25:CompositeType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDataUsingDataContractResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/WcfServiceLayer" minOccurs="0" name="GetDataUsingDataContractResult" nillable="true" type="q26:CompositeType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

@@ -1,0 +1,346 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="ModelMedAc.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="ModelMedAcStoreContainer">
+    <EntitySet Name="Utentes" EntityType="ModelMedAc.Store.Utentes" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="BPs" EntityType="ModelMedAc.Store.BPs" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="HRs" EntityType="ModelMedAc.Store.HRs" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="SPOes" EntityType="ModelMedAc.Store.SPOes" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Alertas" EntityType="ModelMedAc.Store.Alertas" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="UtenteBP" Association="ModelMedAc.Store.UtenteBP">
+      <End Role="Utente" EntitySet="Utentes" />
+      <End Role="BP" EntitySet="BPs" />
+    </AssociationSet>
+    <AssociationSet Name="UtenteHR" Association="ModelMedAc.Store.UtenteHR">
+      <End Role="Utente" EntitySet="Utentes" />
+      <End Role="HR" EntitySet="HRs" />
+    </AssociationSet>
+    <AssociationSet Name="UtenteSPO" Association="ModelMedAc.Store.UtenteSPO">
+      <End Role="Utente" EntitySet="Utentes" />
+      <End Role="SPO" EntitySet="SPOes" />
+    </AssociationSet>
+    <AssociationSet Name="AlertaUtente" Association="ModelMedAc.Store.AlertaUtente">
+      <End Role="Alerta" EntitySet="Alertas" />
+      <End Role="Utente" EntitySet="Utentes" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Utentes">
+    <Key>
+      <PropertyRef Name="IdUtente" />
+    </Key>
+    <Property Name="IdUtente" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nome" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Apelido" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="DataNasc" Type="datetime" Nullable="true" />
+    <Property Name="SNS" Type="int" Nullable="false" />
+    <Property Name="Idade" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Activo" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="BPs">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Data" Type="datetime" Nullable="false" />
+    <Property Name="Valor1" Type="int" Nullable="false" />
+    <Property Name="Valor2" Type="int" Nullable="false" />
+    <Property Name="Alerta" Type="bit" Nullable="false" />
+    <Property Name="Utente_IdUtente" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="HRs">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Data" Type="datetime" Nullable="false" />
+    <Property Name="Valor" Type="int" Nullable="false" />
+    <Property Name="Alerta" Type="bit" Nullable="false" />
+    <Property Name="Utente_IdUtente" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SPOes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Data" Type="datetime" Nullable="false" />
+    <Property Name="Valor" Type="int" Nullable="false" />
+    <Property Name="Alerta" Type="bit" Nullable="false" />
+    <Property Name="Utente_IdUtente" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Alertas">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Tipo" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Data" Type="datetime" Nullable="false" />
+    <Property Name="Parametro" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Utente_IdUtente" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="UtenteBP">
+    <End Role="Utente" Type="ModelMedAc.Store.Utentes" Multiplicity="1" />
+    <End Role="BP" Type="ModelMedAc.Store.BPs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Utente">
+        <PropertyRef Name="IdUtente" />
+      </Principal>
+      <Dependent Role="BP">
+        <PropertyRef Name="Utente_IdUtente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="UtenteHR">
+    <End Role="Utente" Type="ModelMedAc.Store.Utentes" Multiplicity="1" />
+    <End Role="HR" Type="ModelMedAc.Store.HRs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Utente">
+        <PropertyRef Name="IdUtente" />
+      </Principal>
+      <Dependent Role="HR">
+        <PropertyRef Name="Utente_IdUtente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="UtenteSPO">
+    <End Role="Utente" Type="ModelMedAc.Store.Utentes" Multiplicity="1" />
+    <End Role="SPO" Type="ModelMedAc.Store.SPOes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Utente">
+        <PropertyRef Name="IdUtente" />
+      </Principal>
+      <Dependent Role="SPO">
+        <PropertyRef Name="Utente_IdUtente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="AlertaUtente">
+    <End Role="Alerta" Type="ModelMedAc.Store.Alertas" Multiplicity="*" />
+    <End Role="Utente" Type="ModelMedAc.Store.Utentes" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Utente">
+        <PropertyRef Name="IdUtente" />
+      </Principal>
+      <Dependent Role="Alerta">
+        <PropertyRef Name="Utente_IdUtente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="ModelMedAc" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+        <EntityContainer Name="ModelMedAcContainer" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Utentes" EntityType="ModelMedAc.Utente" />
+          <EntitySet Name="BPs" EntityType="ModelMedAc.BP" />
+          <AssociationSet Name="UtenteBP" Association="ModelMedAc.UtenteBP">
+            <End Role="Utente" EntitySet="Utentes" />
+            <End Role="BP" EntitySet="BPs" />
+          </AssociationSet>
+          <EntitySet Name="HRs" EntityType="ModelMedAc.HR" />
+          <AssociationSet Name="UtenteHR" Association="ModelMedAc.UtenteHR">
+            <End Role="Utente" EntitySet="Utentes" />
+            <End Role="HR" EntitySet="HRs" />
+          </AssociationSet>
+          <EntitySet Name="SPOes" EntityType="ModelMedAc.SPO" />
+          <AssociationSet Name="UtenteSPO" Association="ModelMedAc.UtenteSPO">
+            <End Role="Utente" EntitySet="Utentes" />
+            <End Role="SPO" EntitySet="SPOes" />
+          </AssociationSet>
+          <EntitySet Name="Alertas" EntityType="ModelMedAc.Alerta" />
+          <AssociationSet Name="AlertaUtente" Association="ModelMedAc.AlertaUtente">
+            <End Role="Alerta" EntitySet="Alertas" />
+            <End Role="Utente" EntitySet="Utentes" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Utente">
+          <Key>
+            <PropertyRef Name="IdUtente" />
+          </Key>
+          <Property Name="IdUtente" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nome" Type="String" Nullable="false" />
+          <Property Name="Apelido" Type="String" Nullable="false" />
+          <Property Name="DataNasc" Type="DateTime" Nullable="true" />
+          <Property Name="SNS" Type="Int32" Nullable="false" />
+          <Property Name="Idade" Type="String" Nullable="true" />
+          <Property Name="Activo" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="BPs" Relationship="ModelMedAc.UtenteBP" FromRole="Utente" ToRole="BP" />
+          <NavigationProperty Name="HRs" Relationship="ModelMedAc.UtenteHR" FromRole="Utente" ToRole="HR" />
+          <NavigationProperty Name="SPOes" Relationship="ModelMedAc.UtenteSPO" FromRole="Utente" ToRole="SPO" />
+          <NavigationProperty Name="Alertas" Relationship="ModelMedAc.AlertaUtente" FromRole="Utente" ToRole="Alerta" />
+        </EntityType>
+        <EntityType Name="BP">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Data" Type="DateTime" Nullable="false" />
+          <Property Name="Valor1" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Utente" Relationship="ModelMedAc.UtenteBP" FromRole="BP" ToRole="Utente" />
+          <Property Name="Valor2" Type="Int32" Nullable="false" />
+          <Property Name="Alerta" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <Association Name="UtenteBP">
+          <End Type="ModelMedAc.Utente" Role="Utente" Multiplicity="1" />
+          <End Type="ModelMedAc.BP" Role="BP" Multiplicity="*" />
+        </Association>
+        <EntityType Name="HR">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Data" Type="DateTime" Nullable="false" />
+          <Property Name="Valor" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Utente" Relationship="ModelMedAc.UtenteHR" FromRole="HR" ToRole="Utente" />
+          <Property Name="Alerta" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <Association Name="UtenteHR">
+          <End Type="ModelMedAc.Utente" Role="Utente" Multiplicity="1" />
+          <End Type="ModelMedAc.HR" Role="HR" Multiplicity="*" />
+        </Association>
+        <EntityType Name="SPO">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Data" Type="DateTime" Nullable="false" />
+          <Property Name="Valor" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Utente" Relationship="ModelMedAc.UtenteSPO" FromRole="SPO" ToRole="Utente" />
+          <Property Name="Alerta" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <Association Name="UtenteSPO">
+          <End Type="ModelMedAc.Utente" Role="Utente" Multiplicity="1" />
+          <End Type="ModelMedAc.SPO" Role="SPO" Multiplicity="*" />
+        </Association>
+        <EntityType Name="Alerta">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Tipo" Type="String" Nullable="true" />
+          <Property Name="Data" Type="DateTime" Nullable="false" />
+          <Property Name="Parametro" Type="String" Nullable="true" />
+          <NavigationProperty Name="Utente" Relationship="ModelMedAc.AlertaUtente" FromRole="Alerta" ToRole="Utente" />
+        </EntityType>
+        <Association Name="AlertaUtente">
+          <End Type="ModelMedAc.Alerta" Role="Alerta" Multiplicity="*" />
+          <End Type="ModelMedAc.Utente" Role="Utente" Multiplicity="1" />
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ModelMedAcStoreContainer" CdmEntityContainer="ModelMedAcContainer">
+    <EntitySetMapping Name="Utentes">
+      <EntityTypeMapping TypeName="IsTypeOf(ModelMedAc.Utente)">
+        <MappingFragment StoreEntitySet="Utentes">
+          <ScalarProperty Name="IdUtente" ColumnName="IdUtente" />
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
+          <ScalarProperty Name="Apelido" ColumnName="Apelido" />
+          <ScalarProperty Name="DataNasc" ColumnName="DataNasc" />
+          <ScalarProperty Name="SNS" ColumnName="SNS" />
+          <ScalarProperty Name="Idade" ColumnName="Idade" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BPs">
+      <EntityTypeMapping TypeName="IsTypeOf(ModelMedAc.BP)">
+        <MappingFragment StoreEntitySet="BPs">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Data" ColumnName="Data" />
+          <ScalarProperty Name="Valor1" ColumnName="Valor1" />
+          <ScalarProperty Name="Valor2" ColumnName="Valor2" />
+          <ScalarProperty Name="Alerta" ColumnName="Alerta" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HRs">
+      <EntityTypeMapping TypeName="IsTypeOf(ModelMedAc.HR)">
+        <MappingFragment StoreEntitySet="HRs">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Data" ColumnName="Data" />
+          <ScalarProperty Name="Valor" ColumnName="Valor" />
+          <ScalarProperty Name="Alerta" ColumnName="Alerta" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SPOes">
+      <EntityTypeMapping TypeName="IsTypeOf(ModelMedAc.SPO)">
+        <MappingFragment StoreEntitySet="SPOes">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Data" ColumnName="Data" />
+          <ScalarProperty Name="Valor" ColumnName="Valor" />
+          <ScalarProperty Name="Alerta" ColumnName="Alerta" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Alertas">
+      <EntityTypeMapping TypeName="IsTypeOf(ModelMedAc.Alerta)">
+        <MappingFragment StoreEntitySet="Alertas">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+          <ScalarProperty Name="Data" ColumnName="Data" />
+          <ScalarProperty Name="Parametro" ColumnName="Parametro" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="UtenteBP" TypeName="ModelMedAc.UtenteBP" StoreEntitySet="BPs">
+      <EndProperty Name="Utente">
+        <ScalarProperty Name="IdUtente" ColumnName="Utente_IdUtente" />
+      </EndProperty>
+      <EndProperty Name="BP">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="UtenteHR" TypeName="ModelMedAc.UtenteHR" StoreEntitySet="HRs">
+      <EndProperty Name="Utente">
+        <ScalarProperty Name="IdUtente" ColumnName="Utente_IdUtente" />
+      </EndProperty>
+      <EndProperty Name="HR">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="UtenteSPO" TypeName="ModelMedAc.UtenteSPO" StoreEntitySet="SPOes">
+      <EndProperty Name="Utente">
+        <ScalarProperty Name="IdUtente" ColumnName="Utente_IdUtente" />
+      </EndProperty>
+      <EndProperty Name="SPO">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="AlertaUtente" TypeName="ModelMedAc.AlertaUtente" StoreEntitySet="Alertas">
+      <EndProperty Name="Utente">
+        <ScalarProperty Name="IdUtente" ColumnName="Utente_IdUtente" />
+      </EndProperty>
+      <EndProperty Name="Alerta">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+        <DesignerProperty Name="UseLegacyProvider" Value="False" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

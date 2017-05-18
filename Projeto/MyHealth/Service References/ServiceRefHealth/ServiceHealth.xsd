@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/WcfServiceLayer" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/WcfServiceLayer" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="Patient">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Activo" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Age" type="xs:int" />
+      <xs:element minOccurs="0" name="Birthdate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="FirstName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LastName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PatientID" type="xs:int" />
+      <xs:element minOccurs="0" name="SNS" type="xs:int" />
+      <xs:element minOccurs="0" name="Value1" type="xs:int" />
+      <xs:element minOccurs="0" name="bps" nillable="true" type="tns:BP" />
+      <xs:element minOccurs="0" name="oldSNS" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Patient" nillable="true" type="tns:Patient" />
+  <xs:complexType name="BP">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Alerta" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Data" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Utente" nillable="true" type="tns:Utente" />
+      <xs:element minOccurs="0" name="Valor1" type="xs:int" />
+      <xs:element minOccurs="0" name="Valor2" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BP" nillable="true" type="tns:BP" />
+  <xs:complexType name="Utente">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Activo" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Alertas" nillable="true" type="tns:ArrayOfAlerta" />
+      <xs:element minOccurs="0" name="Apelido" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BPs" nillable="true" type="tns:ArrayOfBP" />
+      <xs:element minOccurs="0" name="DataNasc" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="HRs" nillable="true" type="tns:ArrayOfHR" />
+      <xs:element minOccurs="0" name="IdUtente" type="xs:int" />
+      <xs:element minOccurs="0" name="Idade" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Nome" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SNS" type="xs:int" />
+      <xs:element minOccurs="0" name="SPOes" nillable="true" type="tns:ArrayOfSPO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Utente" nillable="true" type="tns:Utente" />
+  <xs:complexType name="ArrayOfAlerta">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Alerta" nillable="true" type="tns:Alerta" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfAlerta" nillable="true" type="tns:ArrayOfAlerta" />
+  <xs:complexType name="Alerta">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Data" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Parametro" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Tipo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Utente" nillable="true" type="tns:Utente" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Alerta" nillable="true" type="tns:Alerta" />
+  <xs:complexType name="ArrayOfBP">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="BP" nillable="true" type="tns:BP" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfBP" nillable="true" type="tns:ArrayOfBP" />
+  <xs:complexType name="ArrayOfHR">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="HR" nillable="true" type="tns:HR" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfHR" nillable="true" type="tns:ArrayOfHR" />
+  <xs:complexType name="HR">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Alerta" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Data" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Utente" nillable="true" type="tns:Utente" />
+      <xs:element minOccurs="0" name="Valor" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="HR" nillable="true" type="tns:HR" />
+  <xs:complexType name="ArrayOfSPO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SPO" nillable="true" type="tns:SPO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSPO" nillable="true" type="tns:ArrayOfSPO" />
+  <xs:complexType name="SPO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Alerta" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Data" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Utente" nillable="true" type="tns:Utente" />
+      <xs:element minOccurs="0" name="Valor" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SPO" nillable="true" type="tns:SPO" />
+  <xs:complexType name="BPs">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Age" type="xs:int" />
+      <xs:element minOccurs="0" name="Alert" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Birthdate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Date" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="FirstName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LastName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SNS" type="xs:int" />
+      <xs:element minOccurs="0" name="Value1" type="xs:int" />
+      <xs:element minOccurs="0" name="Value2" type="xs:int" />
+      <xs:element minOccurs="0" name="patient" nillable="true" type="tns:Patient" />
+      <xs:element minOccurs="0" name="sns" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BPs" nillable="true" type="tns:BPs" />
+  <xs:complexType name="SPOes">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Age" type="xs:int" />
+      <xs:element minOccurs="0" name="Alert" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Birthdate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Date" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="FirstName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LastName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SNS" type="xs:int" />
+      <xs:element minOccurs="0" name="Value" type="xs:int" />
+      <xs:element minOccurs="0" name="patient" nillable="true" type="tns:Patient" />
+      <xs:element minOccurs="0" name="sns" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SPOes" nillable="true" type="tns:SPOes" />
+  <xs:complexType name="HRs">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Age" type="xs:int" />
+      <xs:element minOccurs="0" name="Alert" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Birthdate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Date" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="FirstName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LastName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SNS" type="xs:int" />
+      <xs:element minOccurs="0" name="Value" type="xs:int" />
+      <xs:element minOccurs="0" name="patient" nillable="true" type="tns:Patient" />
+      <xs:element minOccurs="0" name="sns" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="HRs" nillable="true" type="tns:HRs" />
+  <xs:complexType name="Alertas">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Alert" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Bp" nillable="true" type="tns:BPs" />
+      <xs:element minOccurs="0" name="Date" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="FirstName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Hr" nillable="true" type="tns:HRs" />
+      <xs:element minOccurs="0" name="LastName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Patient" nillable="true" type="tns:Patient" />
+      <xs:element minOccurs="0" name="SNS" type="xs:int" />
+      <xs:element minOccurs="0" name="Spoe" nillable="true" type="tns:SPOes" />
+      <xs:element minOccurs="0" name="Tipo" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Alertas" nillable="true" type="tns:Alertas" />
+  <xs:complexType name="ArrayOfPatient">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Patient" nillable="true" type="tns:Patient" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPatient" nillable="true" type="tns:ArrayOfPatient" />
+  <xs:complexType name="ArrayOfBPs">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="BPs" nillable="true" type="tns:BPs" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfBPs" nillable="true" type="tns:ArrayOfBPs" />
+  <xs:complexType name="ArrayOfSPOes">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SPOes" nillable="true" type="tns:SPOes" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSPOes" nillable="true" type="tns:ArrayOfSPOes" />
+  <xs:complexType name="ArrayOfHRs">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="HRs" nillable="true" type="tns:HRs" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfHRs" nillable="true" type="tns:ArrayOfHRs" />
+  <xs:complexType name="ArrayOfAlertas">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Alertas" nillable="true" type="tns:Alertas" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfAlertas" nillable="true" type="tns:ArrayOfAlertas" />
+  <xs:complexType name="CompositeType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="BoolValue" type="xs:boolean" />
+      <xs:element minOccurs="0" name="StringValue" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CompositeType" nillable="true" type="tns:CompositeType" />
+</xs:schema>

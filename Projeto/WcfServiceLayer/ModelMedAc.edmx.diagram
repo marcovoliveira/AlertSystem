@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="42f339ed7abf4ecea58639b61aada488" Name="Diagram1" >
+        <EntityTypeShape EntityType="ModelMedAc.Utente" Width="1.5" PointX="8.25" PointY="1.625" />
+        <EntityTypeShape EntityType="ModelMedAc.BP" Width="1.5" PointX="5.125" PointY="3.625" />
+        <AssociationConnector Association="ModelMedAc.UtenteBP" />
+        <EntityTypeShape EntityType="ModelMedAc.HR" Width="1.5" PointX="2.375" PointY="1.75" />
+        <AssociationConnector Association="ModelMedAc.UtenteHR" />
+        <EntityTypeShape EntityType="ModelMedAc.SPO" Width="1.5" PointX="5.125" PointY="1.125" />
+        <AssociationConnector Association="ModelMedAc.UtenteSPO" />
+        <EntityTypeShape EntityType="ModelMedAc.Alerta" Width="1.5" PointX="11.5" PointY="2.5" />
+        <AssociationConnector Association="ModelMedAc.AlertaUtente" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
