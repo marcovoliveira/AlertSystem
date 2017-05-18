@@ -10,10 +10,10 @@
 <p>Alert System Module - Application that allow the monitoring by health professional of the data acquired by patient module</p>
 
 <p><h3> Technologies </h3> </p>
-<li>
+
 <ul>● SQL Server</ul>
 <ul>● ADO.NET Entity Framework</ul>
 <ul>● C#</ul>
-</li>
+
 
 
